@@ -1,0 +1,253 @@
+
+.order-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 130px auto;
+}
+
+.order-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.order-heading > span {
+  color: #819074;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.order-heading h2 {
+  color: #183d2b;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 5vw, 65px);
+  margin-top: 18px;
+}
+
+.order-heading h2 span {
+  color: #a1a982;
+  font-style: italic;
+}
+
+.order-heading p {
+  color: #858779;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.order-form {
+  background: #fffefa;
+  border: 1px solid #e8e7dc;
+  border-radius: 25px;
+  padding: 45px;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.order-form:hover {
+  border-color: #d8dfce;
+  box-shadow: 0 20px 55px rgba(24, 61, 43, 0.08);
+}
+
+.order-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.order-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.order-field label {
+  color: #183d2b;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.order-field:focus-within label {
+  color: #819074;
+}
+
+.order-field input,
+.order-field select,
+.order-field textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e2e4d8;
+  border-radius: 10px;
+  background: #f8f8f1;
+  outline: none;
+  color: #183d2b;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.order-field input:hover,
+.order-field select:hover,
+.order-field textarea:hover {
+  border-color: #a1a982;
+}
+
+.order-field input:focus,
+.order-field select:focus,
+.order-field textarea:focus {
+  border-color: #183d2b;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(161, 169, 130, 0.17);
+}
+
+.order-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.order-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: #e9eddf;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 35px;
+}
+
+.order-summary > div {
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.order-summary > div:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-4px);
+}
+
+.order-summary span {
+  color: #7b846f;
+  font-size: 11px;
+}
+
+.order-summary h3 {
+  color: #183d2b;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.order-submit {
+  width: 100%;
+  border: none;
+  background: #183d2b;
+  color: white;
+  padding: 19px;
+  border-radius: 50px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    gap 0.35s ease;
+}
+
+.order-submit:hover {
+  background: #a1a982;
+  color: #183d2b;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(24, 61, 43, 0.15);
+  gap: 18px;
+}
+
+.order-submit:active {
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.order-note {
+  text-align: center;
+  color: #929587;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+@media (max-width: 650px) {
+  .order-section {
+    width: 92%;
+    margin: 85px auto;
+  }
+
+  .order-form {
+    padding: 25px 18px;
+  }
+
+  .order-fields {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .order-summary {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order-form,
+  .order-field label,
+  .order-field input,
+  .order-field select,
+  .order-field textarea,
+  .order-summary > div,
+  .order-submit {
+    transition: none;
+  }
+
+  .order-summary > div:hover,
+  .order-submit:hover,
+  .order-submit:active {
+    transform: none;
+  }
+}
+
+.order-form {
+  min-width: 0;
+}
+
+.order-field input:invalid:not(:placeholder-shown) {
+  border-color: #c46b5c;
+}
+
+.order-field input:valid:not(:placeholder-shown) {
+  border-color: #a1a982;
+}
+
+.order-submit span {
+  transition: transform 0.35s ease;
+}
+
+.order-submit:hover span {
+  transform: translate(3px, -3px);
+}

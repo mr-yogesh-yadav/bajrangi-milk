@@ -1,0 +1,280 @@
+
+/* ================================
+   MILK SECTION
+================================ */
+
+.milk-section {
+  width: 90%;
+  max-width: 1400px;
+  margin: 120px auto;
+}
+
+/* ================================
+   HEADING
+================================ */
+
+.milk-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 55px;
+  gap: 30px;
+}
+
+.milk-tag {
+  color: #718466;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.milk-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1.15;
+  color: var(--green);
+  margin-top: 18px;
+}
+
+.milk-heading h2 span {
+  color: #a1a982;
+  font-style: italic;
+}
+
+.milk-heading > p {
+  max-width: 340px;
+  color: #858779;
+  font-size: 14px;
+  line-height: 1.9;
+  padding-bottom: 8px;
+}
+
+/* ================================
+   MILK GRID
+================================ */
+
+.milk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ================================
+   MILK CARD
+================================ */
+
+.milk-card {
+  background: #eeeee3;
+  border-radius: 20px;
+  overflow: hidden;
+
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s ease;
+
+  will-change: transform;
+}
+
+.milk-card-inner {
+  height: 100%;
+}
+
+.milk-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 50px rgba(24, 61, 43, 0.13);
+}
+
+.cow-product {
+  background: #e9eddf;
+}
+
+.buffalo-product {
+  background: #e8e8dd;
+}
+
+/* ================================
+   PRODUCT IMAGE
+================================ */
+
+.milk-card-image {
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+
+.milk-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.milk-card:hover .milk-card-image img {
+  transform: scale(1.09);
+}
+
+.milk-card-type {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+
+  background: var(--cream);
+  color: var(--green);
+
+  padding: 10px 15px;
+  border-radius: 30px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.milk-card:hover .milk-card-type {
+  background: var(--green);
+  color: var(--cream);
+}
+
+/* ================================
+   PRODUCT CONTENT
+================================ */
+
+.milk-card-content {
+  padding: 35px 35px 40px;
+}
+
+.milk-card-content > span {
+  color: #89917c;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.milk-card-content h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: 36px;
+  margin-top: 12px;
+
+  transition: color 0.3s ease;
+}
+
+.milk-card:hover .milk-card-content h3 {
+  color: #718466;
+}
+
+.milk-card-content p {
+  color: #777c70;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 380px;
+  margin-top: 12px;
+}
+
+/* ================================
+   ORDER LINK
+================================ */
+
+.milk-card-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: 35px;
+
+  color: var(--green);
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  border-bottom: 1px solid var(--green);
+  padding-bottom: 8px;
+  margin-top: 25px;
+
+  transition:
+    gap 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.milk-card-content a:hover {
+  gap: 48px;
+  color: #788d62;
+  border-color: #788d62;
+}
+
+/* ================================
+   BOTTOM TEXT
+================================ */
+
+.milk-bottom-text {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid #deded0;
+  margin-top: 50px;
+  padding-top: 22px;
+
+  color: #939788;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 750px) {
+  .milk-section {
+    width: 92%;
+    margin: 80px auto;
+  }
+
+  .milk-heading {
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+
+  .milk-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .milk-card-image {
+    height: 300px;
+  }
+
+  .milk-card-content {
+    padding: 28px;
+  }
+
+  .milk-bottom-text {
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .milk-card,
+  .milk-card-image img,
+  .milk-card-type,
+  .milk-card-content h3,
+  .milk-card-content a {
+    transition: none;
+  }
+
+  .milk-card:hover,
+  .milk-card:hover .milk-card-image img {
+    transform: none;
+  }
+}

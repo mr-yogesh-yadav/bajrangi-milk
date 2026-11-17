@@ -1,0 +1,182 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ================================
+   GLOBAL VARIABLES
+================================ */
+
+:root {
+  --cream: #F8F5EC;
+  --white: #FFFFFF;
+  --green: #183D2B;
+  --green-light: #A8B89A;
+  --yellow: #E8C96A;
+  --text: #26352B;
+  --text-light: #6F796F;
+  --border: #E5E1D6;
+
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   RESET
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#home,
+#milk,
+#story,
+#delivery,
+#order {
+  scroll-margin-top: 110px;
+}
+
+main {
+  width: 100%;
+  overflow: clip;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  min-width: 320px;
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================================
+   COMMON ELEMENTS
+================================ */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--green);
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* ================================
+   TEXT SELECTION
+================================ */
+
+::selection {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-light);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+/* ================================
+   FOCUS ACCESSIBILITY
+================================ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 85px;
+  }
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
