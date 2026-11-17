@@ -19,7 +19,7 @@
   border-radius: 100px;
 
   position: sticky;
-  top: 15px;
+  top: 0;
   z-index: 1000;
 
   box-shadow: 0 8px 30px rgba(24, 61, 43, 0.07);
