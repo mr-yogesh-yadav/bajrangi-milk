@@ -1,7 +1,7 @@
 
 import "./OurStory.css";
 import Reveal from "../Component/Reveal";
-
+import milkFarmImage from "../Component/Images/dairy-farm.jpg";
 function OurStory() {
   return (
     <section className="story-section" id="story">
@@ -19,7 +19,7 @@ function OurStory() {
           <Reveal>
             <div className="story-image">
               <img
-                src="/dairy-farm.jpg"
+                src={milkFarmImage}
                 alt="Bajrangi dairy farm"
                 loading="lazy"
               />

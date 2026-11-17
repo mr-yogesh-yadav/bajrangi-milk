@@ -71,7 +71,7 @@ function Hero() {
           </div>
 
           <div className="hero-image-bottom">
-            <span>BAJRANGI DAIRY</span>
+            <span>BAJRANGI MILK</span>
             <span>EST. WITH CARE ✳</span>
           </div>
 

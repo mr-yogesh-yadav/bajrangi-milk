@@ -1,7 +1,7 @@
 
 import "./Delivery.css";
 import Reveal from "../Component/Reveal";
-
+import milkDeliveryImage from "../Component/Images/milk-delivery.jpg";
 import {
   FaTruckFast,
   FaClock,
@@ -76,7 +76,7 @@ function Delivery() {
           <Reveal delay={200}>
             <div className="delivery-image">
               <img
-                src="/milk-delivery.jpg"
+                src={milkDeliveryImage}
                 alt="Fresh milk delivery"
                 loading="lazy"
               />

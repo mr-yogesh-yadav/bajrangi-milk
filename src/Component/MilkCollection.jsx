@@ -1,7 +1,8 @@
 
 import Reveal from "../Component/Reveal";
 import "./MilkCollection.css";
-
+import cowMilkImage from "../Component/Images/cow-milk.jpg";
+import buffaloMilkImage from "../Component/Images/buffalo-milk.jpg";
 const milkProducts = [
   {
     id: 1,
@@ -10,7 +11,7 @@ const milkProducts = [
     description:
       "Enjoy fresh cow milk, carefully sourced for your family's everyday goodness.",
     type: "01 — FARM FRESH",
-    image: "/cow-milk.jpg",
+    image: cowMilkImage,
     className: "cow-product",
   },
   {
@@ -20,7 +21,7 @@ const milkProducts = [
     description:
       "Rich and creamy buffalo milk, bringing traditional dairy goodness to your home.",
     type: "02 — FARM FRESH",
-    image: "/buffalo-milk.jpg",
+    image: buffaloMilkImage,
     className: "buffalo-product",
   },
 ];
