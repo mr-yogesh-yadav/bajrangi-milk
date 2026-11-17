@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://bajrangi-milk-f7g2to2o9-yogesh-portfolio2.vercel.app/sitemap.xml
