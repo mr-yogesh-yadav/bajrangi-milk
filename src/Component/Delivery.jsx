@@ -1,7 +1,7 @@
 
 import "./Delivery.css";
 import Reveal from "../Component/Reveal";
-import milkDeliveryImage from "../Component/Images/milk-delivery.jpg";
+import milkDeliveryImage from "../Component/images/Milk-dilevery.webp"
 import {
   FaTruckFast,
   FaClock,

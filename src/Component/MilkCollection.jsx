@@ -1,8 +1,8 @@
 
 import Reveal from "../Component/Reveal";
 import "./MilkCollection.css";
-import cowMilkImage from "../Component/Images/cow-milk.jpg";
-import buffaloMilkImage from "../Component/Images/buffalo-milk.jpg";
+import cowMilkImage from "../Component/images/cow-milk.webp"
+import buffaloMilkImage from "../Component/images/buffalo-milk.webp"
 const milkProducts = [
   {
     id: 1,

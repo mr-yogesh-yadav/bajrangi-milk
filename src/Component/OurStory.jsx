@@ -1,7 +1,7 @@
 
 import "./OurStory.css";
 import Reveal from "../Component/Reveal";
-import milkFarmImage from "../Component/Images/dairy-farm.jpg";
+import milkFarmImage from "../Component/images/dairy-farm.webp"
 function OurStory() {
   return (
     <section className="story-section" id="story">
