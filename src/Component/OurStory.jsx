@@ -46,7 +46,7 @@ function OurStory() {
               </h2>
 
               <p>
-                At Bajrangi Dairy, we believe that good milk
+                At Bajrangi Milk, we believe that good milk
                 begins with care. Our goal is to bring fresh
                 cow and buffalo milk straight to your doorstep.
               </p>
@@ -54,7 +54,7 @@ function OurStory() {
               <p>
                 We value freshness, quality and the trust
                 of every family we serve. Every delivery
-                is a commitment to bringing dairy goodness
+                is a commitment to bringing milk goodness
                 closer to your home.
               </p>
 
@@ -63,7 +63,7 @@ function OurStory() {
               </a>
 
               <div className="story-signature">
-                <span>BAJRANGI DAIRY</span>
+                <span>BAJRANGI MILK</span>
                 <p>Freshness You Can Trust.</p>
               </div>
 

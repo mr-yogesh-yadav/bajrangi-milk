@@ -19,7 +19,7 @@ const milkProducts = [
     name: "Buffalo Milk",
     subtitle: "Rich, Creamy & Wholesome",
     description:
-      "Rich and creamy buffalo milk, bringing traditional dairy goodness to your home.",
+      "Rich and creamy buffalo milk, bringing traditional milk goodness to your home.",
     type: "02 — FARM FRESH",
     image: buffaloMilkImage,
     className: "buffalo-product",
@@ -48,7 +48,7 @@ function MilkCollection() {
 
         <Reveal delay={200}>
           <p>
-            Discover our fresh dairy collection.
+            Discover our fresh Milk collection.
             Pure milk, delivered with care to your home.
           </p>
         </Reveal>

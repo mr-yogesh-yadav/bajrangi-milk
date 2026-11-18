@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: <FaHouse />,
     title: "Made for Families",
-    text: "Convenient dairy delivery for your home."
+    text: "Convenient milk delivery for your home."
   }
 ];
 
@@ -47,13 +47,13 @@ function Delivery() {
               </h2>
 
               <p>
-                Start every morning with fresh dairy goodness.
-                Order your favourite milk from Bajrangi Dairy
+                Start every morning with fresh milk goodness.
+                Order your favourite milk from Bajrangi milk
                 and get it delivered to your doorstep.
               </p>
 
               <a
-                href="https://wa.me/919571973691?text=Hello%20Bajrangi%20Dairy%2C%20I%20want%20to%20know%20about%20daily%20milk%20delivery."
+                href="https://wa.me/919571973691?text=Hello%20Bajrangi%20milk%2C%20I%20want%20to%20know%20about%20daily%20milk%20delivery."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="delivery-button"

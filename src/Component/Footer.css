@@ -83,6 +83,7 @@
   width: fit-content;
   color: #bdc9b9;
   font-size: 13px;
+  width: 100%;
   text-decoration: none;
   transition:
     color 0.3s ease,
@@ -104,6 +105,8 @@
   display: flex;
   gap: 12px;
   margin-top: 10px;
+  align-items: center;
+  justify-content:center;
 }
 
 .footer-socials a {

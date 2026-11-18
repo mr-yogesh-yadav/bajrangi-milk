@@ -1,7 +1,7 @@
 
 import "./Hero.css";
 import Reveal from "../Component/Reveal";
-
+import CountUp from "./CountUp";
 function Hero() {
   return (
     <section className="hero" id="home">
@@ -41,25 +41,35 @@ function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={400}>
-          <div className="hero-bottom">
-            <div>
-              <h3>100%</h3>
-              <span>Fresh Milk</span>
-            </div>
+        
+<Reveal delay={400}>
+  <div className="hero-bottom">
+    <div>
+      <h3><CountUp end={100} suffix="%" /></h3>
+      <span>Fresh Milk</span>
+    </div>
 
-            <div>
-              <h3>Daily</h3>
-              <span>Home Delivery</span>
-            </div>
+    <div>
+      <h3>Daily</h3>
+      <span>Home Delivery</span>
+    </div>
 
-            <div>
-              <h3>Local</h3>
-              <span>Jaipur Dairy</span>
-            </div>
-          </div>
-        </Reveal>
+    <div>
+      <h3>Local</h3>
+      <span>Jaipur Milk</span>
+    </div>
 
+    <div>
+      <h3><CountUp end={300} suffix="+" /></h3>
+      <span>Happy Customers</span>
+    </div>
+
+    <div>
+      <h3><CountUp end={100} suffix="%" /></h3>
+      <span>Trusted</span>
+    </div>
+  </div>
+</Reveal>
       </div>
 
       <Reveal delay={200}>

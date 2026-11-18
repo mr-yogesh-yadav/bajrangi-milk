@@ -22,7 +22,7 @@ function Navbar() {
 
         <div className="logo-text">
           <h2>Bajrangi</h2>
-          <span>PURE DAIRY FARM</span>
+          <span>PURE MILK FARM</span>
         </div>
       </a>
 
@@ -35,7 +35,7 @@ function Navbar() {
       </div>
 
       <a
-  href="https://wa.me/919571973691"
+ href="https://wa.me/919571973691?text=Hello%20Bajrangi%20milk%2C%20I%20want%20to%20know%20about%20daily%20milk%20delivery."
   target="_blank"
   rel="noopener noreferrer"
   className="nav-order"
