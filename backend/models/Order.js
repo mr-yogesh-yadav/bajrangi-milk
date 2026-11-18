@@ -40,6 +40,17 @@ const orderSchema = new mongoose.Schema(
         validator: Number.isInteger,
         message: "Quantity must be a whole number.",
       },
+      pricePerLitre: {
+  type: Number,
+  required: true,
+  min: 0,
+},
+
+totalAmount: {
+  type: Number,
+  required: true,
+  min: 0,
+},
     },
 
     instructions: {

@@ -1,9 +1,9 @@
-
+const Settings = require("./models/Settings");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-
+const adminRoutes = require("./routes/adminRoutes");
 const Order = require("./models/Order");
 
 const app = express();
@@ -24,12 +24,37 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
+app.use("/api/admin", adminRoutes);
 // Test API
 app.get("/", (req, res) => {
   res.send("Bajrangi Milk Backend is Running!");
 });
+// GET: Public milk prices for customer order form
+app.get("/api/prices", async (req, res) => {
+  try {
+    const settings = await Settings.findOne();
 
+    if (!settings) {
+      return res.status(404).json({
+        success: false,
+        message: "Milk prices are not configured yet.",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      prices: {
+        Cow: settings.cowPrice,
+        Buffalo: settings.buffaloPrice,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Unable to fetch milk prices.",
+    });
+  }
+});
 // Create New Order
 app.post("/api/orders", async (req, res) => {
   try {
@@ -113,23 +138,61 @@ app.post("/api/orders", async (req, res) => {
     }
 
     // Save order in MongoDB
-    const newOrder = await Order.create({
-      name: name.trim(),
-      phone,
-      address: address.trim(),
-      milkType,
-      quantity,
-      instructions: instructions?.trim() || ""
-    });
+// Get latest milk prices from MongoDB
+const settings = await Settings.findOne();
 
-    return res.status(201).json({
-      success: true,
-      message: "Order placed successfully!",
-      order: {
-        id: newOrder._id,
-        status: newOrder.status
-      }
-    });
+if (!settings) {
+  return res.status(503).json({
+    success: false,
+    message: "Milk prices are not configured yet.",
+  });
+}
+
+// Calculate price on the server
+const pricePerLitre =
+  milkType === "Cow"
+    ? settings.cowPrice
+    : settings.buffaloPrice;
+
+if (
+  typeof pricePerLitre !== "number" ||
+  !Number.isFinite(pricePerLitre) ||
+  pricePerLitre < 0
+) {
+  return res.status(503).json({
+    success: false,
+    message: "Milk price is currently unavailable.",
+  });
+}
+
+const totalAmount = Number(
+  (pricePerLitre * quantity).toFixed(2)
+);
+
+// Save order in MongoDB
+const newOrder = await Order.create({
+  name: name.trim(),
+  phone,
+  address: address.trim(),
+  milkType,
+  quantity,
+  pricePerLitre,
+  totalAmount,
+  instructions: instructions?.trim() || "",
+});
+
+return res.status(201).json({
+  success: true,
+  message: "Order placed successfully!",
+  order: {
+    id: newOrder._id,
+    status: newOrder.status,
+    milkType: newOrder.milkType,
+    quantity: newOrder.quantity,
+    pricePerLitre: newOrder.pricePerLitre,
+    totalAmount: newOrder.totalAmount,
+  },
+});
 
   } catch (error) {
     console.error("Order Error:", error.message);

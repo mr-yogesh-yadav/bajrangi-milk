@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 backend/.env
 backend/node_modules/
+.env
+node_modules/
+generateHash.js

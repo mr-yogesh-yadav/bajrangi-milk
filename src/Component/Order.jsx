@@ -3,10 +3,7 @@ import { IoSend, IoCheckmarkCircle } from "react-icons/io5";
 import "./Order.css";
 import Reveal from "../Component/Reveal";
 
-const MILK_PRICES = {
-  Cow: 55,
-  Buffalo: 75,
-};
+
 
 function Order() {
   const [form, setForm] = useState({
@@ -17,6 +14,9 @@ function Order() {
     quantity: "1",
     instructions: "",
   });
+  const [milkPrices, setMilkPrices] = useState(null);
+const [priceLoading, setPriceLoading] = useState(true);
+const [priceError, setPriceError] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,9 +25,34 @@ function Order() {
     text: "",
   });
 
-  const price = MILK_PRICES[form.milkType];
-  const quantity = Number(form.quantity) || 0;
-  const total = price * quantity;
+const price = milkPrices ? milkPrices[form.milkType] : 0;
+
+const quantity = Number(form.quantity) || 0;
+
+const total = price * quantity;
+  useEffect(() => {
+  const fetchMilkPrices = async () => {
+    try {
+      const response = await fetch(
+        "https://bajrangi-milk-backend.onrender.com/api/prices"
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to load milk prices.");
+      }
+
+      setMilkPrices(data.prices);
+    } catch (error) {
+      setPriceError(error.message);
+    } finally {
+      setPriceLoading(false);
+    }
+  };
+
+  fetchMilkPrices();
+}, []);
   useEffect(() => {
     if (!showSuccess) return;
 
@@ -307,27 +332,42 @@ function Order() {
             </div>
           </div>
 
-          <div className="order-summary">
-            <div>
-              <span>Selected Milk</span>
-              <h3>{form.milkType} Milk</h3>
-            </div>
+          
+<div className="order-summary">
+  <div>
+    <span>Selected Milk</span>
+    <h3>{form.milkType} Milk</h3>
+  </div>
 
-            <div>
-              <span>Quantity</span>
-              <h3>{quantity} Litre</h3>
-            </div>
+  <div>
+    <span>Quantity</span>
+    <h3>{quantity} Litre</h3>
+  </div>
 
-            <div>
-              <span>Total Amount</span>
-              <h3>₹{total}</h3>
-            </div>
-          </div>
+  <div>
+    <span>Price Per Litre</span>
+    <h3>
+      {priceLoading
+        ? "Loading..."
+        : milkPrices
+          ? `₹${price}`
+          : "Unavailable"}
+    </h3>
+  </div>
+
+  <div>
+  <span>Total Amount</span>
+  <h3>
+    {priceLoading || !milkPrices ? "—" : `₹${total}`}
+  </h3>
+</div>
+</div>
+
 
           <button
             type="submit"
             className="order-submit"
-            disabled={isSubmitting}
+           disabled={isSubmitting || priceLoading || !milkPrices || !!priceError}
           >
             <IoSend />
             {isSubmitting ? "Placing Order..." : "Order Now"}
