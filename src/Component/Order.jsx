@@ -116,7 +116,7 @@ function Order() {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/orders", {
+      const response = await fetch("https://bajrangi-milk-backend.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
