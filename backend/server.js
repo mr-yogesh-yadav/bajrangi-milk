@@ -149,21 +149,17 @@ if (!settings) {
 }
 
 // Calculate price on the server
-const pricePerLitre =
-  milkType === "Cow"
-    ? settings.cowPrice
-    : settings.buffaloPrice;
-
 if (
   typeof pricePerLitre !== "number" ||
   !Number.isFinite(pricePerLitre) ||
-  pricePerLitre < 0
+  pricePerLitre <= 0
 ) {
   return res.status(503).json({
     success: false,
     message: "Milk price is currently unavailable.",
   });
 }
+
 
 const totalAmount = Number(
   (pricePerLitre * quantity).toFixed(2)

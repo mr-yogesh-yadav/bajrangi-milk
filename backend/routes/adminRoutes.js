@@ -200,7 +200,7 @@ router.patch("/settings", adminAuth, async (req, res) => {
       if (
         typeof price !== "number" ||
         !Number.isFinite(price) ||
-        price < 0
+        price <= 0
       ) {
         return res.status(400).json({
           success: false,

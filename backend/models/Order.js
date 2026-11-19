@@ -40,17 +40,20 @@ const orderSchema = new mongoose.Schema(
         validator: Number.isInteger,
         message: "Quantity must be a whole number.",
       },
-      pricePerLitre: {
-  type: Number,
-  required: true,
-  min: 0,
-},
+    },
 
-totalAmount: {
-  type: Number,
-  required: true,
-  min: 0,
-},
+    // Price per litre
+    pricePerLitre: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+
+    // Total order amount
+    totalAmount: {
+      type: Number,
+      required: true,
+      min: 0,
     },
 
     instructions: {
@@ -62,7 +65,12 @@ totalAmount: {
 
     status: {
       type: String,
-      enum: ["Pending", "Confirmed", "Delivered", "Cancelled"],
+      enum: [
+        "Pending",
+        "Confirmed",
+        "Delivered",
+        "Cancelled",
+      ],
       default: "Pending",
     },
   },
